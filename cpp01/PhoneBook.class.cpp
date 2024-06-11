@@ -11,43 +11,93 @@
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+#include "Contact.hpp"
+#include <cstdlib>
+#include <iomanip>
 #include <iostream>
 #include <string>
 
-PhoneBook::PhoneBook()
+PhoneBook::PhoneBook() : count(0), oldestIndex(0) {}
+PhoneBook::~PhoneBook() {}
+
+void PhoneBook::addContact()
 {
-}
-
-PhoneBook::~PhoneBook() {
-}
-
-void	PhoneBook::addContact() {
-	if (contacts.size() >= maxContacts) {
-		contacts.erase(contacts.begin()); // Remove the oldest contact
-	}
-
-	Contact newContact;
+	Contact contact;
 	std::string input;
 
-	std::cout << "Enter your first name: ";
+	std::cout << "Enter your firstname: ";
 	std::getline(std::cin, input);
-	newContact.setFirstName(input);
+	contact.setFirstName(input);
 
 	std::cout << "Enter your last name: ";
 	std::getline(std::cin, input);
-	newContact.setLastName(input);
+	contact.setLastName(input);
 
 	std::cout << "Enter your nickname: ";
 	std::getline(std::cin, input);
-	newContact.setNickname(input);
+	contact.setNickname(input);
 
 	std::cout << "Enter your phone number: ";
 	std::getline(std::cin, input);
-	newContact.setPhoneNumber(input);
+	contact.setPhoneNumber(input);
 
 	std::cout << "Enter your darkest secret: ";
 	std::getline(std::cin, input);
-	newContact.setDarkestSecret(input);
+	contact.setDarkestSecrets(input);
 
-	contacts.push_back(newContact);
+	if (count < 8) {
+		contacts[count] = contact;
+		count++;
+	} else {
+		contacts[oldestIndex] = contact;
+		oldestIndex = (oldestIndex + 1) % 8;
+	}
+}
+
+void PhoneBook::exitProgram() const { exit(0); }
+
+void PhoneBook::searchContacts() const
+{
+	if (count == 0) {
+		std::cout << "No contacts available." << std::endl;
+		return;
+	}
+
+	std::cout << std::setw(10) << "Index"
+			  << "|" << std::setw(10) << "First Name"
+			  << "|" << std::setw(10) << "Last Name"
+			  << "|" << std::setw(10) << "Nickname" << std::endl;
+	std::cout << "-------------------------------------------" << std::endl;
+
+	for (int i = 0; i < count; i++) {
+		std::cout << std::setw(10) << i << "|" << std::setw(10)
+				  << contacts[i].getFirstName().substr(0, 9) +
+						 (contacts[i].getFirstName().length() > 9 ? "." : "")
+				  << "|" << std::setw(10)
+				  << contacts[i].getLastName().substr(0, 9) +
+						 (contacts[i].getLastName().length() > 9 ? "." : "")
+				  << "|" << std::setw(10)
+				  << contacts[i].getNickname().substr(0, 9) +
+						 (contacts[i].getNickname().length() > 9 ? "." : "")
+				  << std::endl;
+	}
+
+	std::cout << "Enter index to display: ";
+	int index;
+	std::cin >> index;
+	std::cin.ignore();
+
+	if (index >= 0 && index < count) {
+		std::cout << "First Name: " << contacts[index].getFirstName()
+				  << std::endl;
+		std::cout << "Last Name: " << contacts[index].getLastName()
+				  << std::endl;
+		std::cout << "Nickname: " << contacts[index].getNickname() << std::endl;
+		std::cout << "Phone Number: " << contacts[index].getPhoneNumber()
+				  << std::endl;
+		std::cout << "Darkest Secret: " << contacts[index].getDarkestSecrets()
+				  << std::endl;
+	} else {
+		std::cout << "Invalid index." << std::endl;
+	}
 }

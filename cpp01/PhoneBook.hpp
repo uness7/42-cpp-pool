@@ -16,19 +16,19 @@
 
 class PhoneBook
 {
-	public:
-		PhoneBook();
-		~PhoneBook();
+  public:
+	PhoneBook();
+	~PhoneBook();
 
-		void	addContact();
-		void	exit() const;
-		void	searchContact() const;
+	void addContact();
+	void exitProgram() const;
+	void searchContacts() const;
 
-	private:
-		Contact	contacts[8];
-		int	count, oldestIndex;
+  private:
+	Contact contacts[8];
+	int count, oldestIndex;
 
-		void	displayContacts() const;
+	void displayContacts() const;
 };
 
 #endif

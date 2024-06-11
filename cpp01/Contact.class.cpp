@@ -13,52 +13,42 @@
 #include "Contact.hpp"
 #include <iostream>
 
-Contact::Contact() {
-}
+Contact::Contact() {}
 
-Contact::~Contact()
+Contact::~Contact() {}
+
+std::string Contact::getFirstName(void) const { return this->firstName; }
+
+std::string Contact::getLastName(void) const { return this->lastName; }
+
+std::string Contact::getNickname(void) const { return this->nickname; }
+
+std::string Contact::getDarkestSecrets(void) const
 {
-
-}
-
-std::string	Contact::getFirstName(void) const {
-	return this->firstName;
-}
-
-std::string	Contact::getLastName(void) const {
-	return this->lastName;
-}
-
-std::string	Contact::getNickname(void) const {
-	return this->nickname;
-}
-
-std::string	Contact::getDarkestSecrets(void) const {
 	return this->darkestSecrets;
 }
 
-int     Contact::getIndex(void) const {
-	return this->index;
-}
+std::string Contact::getPhoneNumber(void) const { return this->phoneNumber; }
 
-// Setters
-void    Contact::setFirstName(std::string firstName) {
+int Contact::getIndex(void) const { return this->index; }
+
+void Contact::setFirstName(std::string firstName)
+{
 	this->firstName = firstName;
 }
 
-void    Contact::setLastName(std::string lastName) {
-	this->lastName = lastName;
-}
+void Contact::setLastName(std::string lastName) { this->lastName = lastName; }
 
-void    Contact::setNickname(std::string nickname) {
-	this->nickname = nickname;
-}
+void Contact::setNickname(std::string nickname) { this->nickname = nickname; }
 
-void    Contact::setDarkestSecrets(std::string darkestSecrets) {
+void Contact::setDarkestSecrets(std::string darkestSecrets)
+{
 	this->darkestSecrets = darkestSecrets;
 }
 
-void   	Contact::setIndex(int index) {
-	this->index = index;
+void Contact::setPhoneNumber(std::string phoneNumber)
+{
+	this->phoneNumber = phoneNumber;
 }
 
+void Contact::setIndex(int index) { this->index = index; }

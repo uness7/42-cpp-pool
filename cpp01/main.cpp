@@ -10,34 +10,33 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.hpp"
 #include "Contact.hpp"
+#include "PhoneBook.hpp"
+#include <cstdlib>
 #include <iostream>
 #include <string>
-#include <cstdlib>
 
-int	main(int argc, char **argv)
+int main(int argc, char **argv)
 {
 	(void)argc;
 	(void)argv;
-	
-	PhoneBook	phoneBook;	
-	std::string	cmd;
-	
+
+	PhoneBook phoneBook;
+	std::string cmd;
+
 	std::cout << "1. Add Contact\n";
 	std::cout << "2. Search Contact\n";
 	std::cout << "3. Exit Contact\n\n";
-	while (1)
-	{
-		std::cout << "Enter 1, 2, 3, or 4 to choose an operation: ";
+	while (1) {
+		std::cout << "Enter 1, 2, 3 to choose an operation: ";
 		std::getline(std::cin, cmd);
 
 		if (cmd == "1")
 			phoneBook.addContact();
 		else if (cmd == "2")
-			std::cout << "you entered 2\n";
+			phoneBook.searchContacts();
 		else if (cmd == "3")
-			exit(0);
+			phoneBook.exitProgram();
 		else
 			std::cout << "you entered else\n";
 	}

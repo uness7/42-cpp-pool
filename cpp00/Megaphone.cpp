@@ -11,30 +11,22 @@
 /* ************************************************************************** */
 
 #include <iostream>
+#include <cctype>
 
 int	main(int ac, char **av)
 {
-	int	i;
-	int	j;
-	
 	if (ac > 1)
 	{
-		i = 1;
-		while (av[i])
+		std::string result;
+		for (int i = 1; i < ac; i++)
 		{
-			j = 0;
-			while (av[i][j])
-			{
-				if (av[i][j] <= 'z' && av[i][j] <= 'a')
-					std::cout << av[i][j] - 32;
-				else
-					std::cout << av[i][j];
-				j++;
-			}
-			std::cout << " ";
-			i++;
+			int	j = -1;
+			while (av[i][++j])
+				result += toupper(av[i][j]);
+			if (i < ac - 1)
+				result += ' ';
 		}
-		std::cout << "\n";
+		std::cout << result << std::endl;
 	}
 	else
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;

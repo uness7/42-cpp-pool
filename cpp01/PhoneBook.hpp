@@ -6,7 +6,7 @@
 /*   By: yzioual <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 11:57:35 by yzioual           #+#    #+#             */
-/*   Updated: 2024/06/11 13:18:45 by yzioual          ###   ########.fr       */
+/*   Updated: 2024/06/11 14:14:50 by yzioual          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ class PhoneBook
 	private:
 		Contact	contacts[8];
 		int	count, oldestIndex;
-
 
 		void	displayContacts() const;
 };

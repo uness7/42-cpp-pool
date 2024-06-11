@@ -3,7 +3,9 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 TARGET = PhoneBook
 SRCS = main.cpp \
-       PhoneBook.class.cpp
+       PhoneBook.class.cpp \
+       Contact.class.cpp \
+
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(TARGET)

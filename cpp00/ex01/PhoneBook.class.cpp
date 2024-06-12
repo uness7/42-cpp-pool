@@ -6,7 +6,7 @@
 /*   By: yzioual <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 11:56:48 by yzioual           #+#    #+#             */
-/*   Updated: 2024/06/11 14:26:39 by yzioual          ###   ########.fr       */
+/*   Updated: 2024/06/12 11:09:22 by yzioual          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,9 @@ void PhoneBook::addContact()
 	}
 }
 
-void PhoneBook::exitProgram() const { exit(0); }
+void	PhoneBook::exitProgram() const { exit(0); }
 
-void PhoneBook::searchContacts() const
+void	PhoneBook::searchContacts() const
 {
 	if (count == 0) {
 		std::cout << "No contacts available." << std::endl;
@@ -69,10 +69,9 @@ void PhoneBook::searchContacts() const
 			  << "|" << std::setw(10) << "Nickname" << std::endl;
 	std::cout << "-------------------------------------------" << std::endl;
 
+
 	for (int i = 0; i < count; i++) {
-		std::cout << std::setw(10) << i << "|" << std::setw(10)
-				  << contacts[i].getFirstName().substr(0, 9) +
-						 (contacts[i].getFirstName().length() > 9 ? "." : "")
+		std::cout << std::setw(10) << i << "|" << std::setw(10) << contacts[i].getFirstName().substr(0, 9) + (contacts[i].getFirstName().length() > 9 ? "." : "")
 				  << "|" << std::setw(10)
 				  << contacts[i].getLastName().substr(0, 9) +
 						 (contacts[i].getLastName().length() > 9 ? "." : "")

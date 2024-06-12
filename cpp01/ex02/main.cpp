@@ -5,30 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yzioual <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/12 19:07:15 by yzioual           #+#    #+#             */
-/*   Updated: 2024/06/12 19:47:35 by yzioual          ###   ########.fr       */
+/*   Created: 2024/06/12 19:49:01 by yzioual           #+#    #+#             */
+/*   Updated: 2024/06/12 19:56:08 by yzioual          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "zombieHorde.hpp"
+#include <string>
 
-int	main()
+int	main(void)
 {
-	int	count = 3;
-	Zombie *zombies = zombieHorde(count, "waizi");
-	if (zombies == NULL)
-		return -1;
-	else
-	{
-		int	i = 0;
-		while (i < count)
-		{
-			zombies[i].announce();
-			i++;
-		}
-		delete[] zombies;
-	}
+	
+	std::string str = "HI THIS IS BRAIN";
+	std::string* stringPTR = &str;
+	std::string& stringREF = str;
+
+	std::cout << "String value: " << str << std::endl;
+	std::cout << "Pointer to string (stringPTR): " << *stringPTR << std::endl;
+	std::cout << "Reference to string (stringREF): " << stringREF << std::endl;
+
+	std::cout << "Address of the string variable: " << &str << std::endl;
+	std::cout << "Address stored in stringPTR: " << stringPTR << std::endl;
+	std::cout << "Address of the stringREF: " << &stringREF << std::endl;	
 
 	return 0;
 }

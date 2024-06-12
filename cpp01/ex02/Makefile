@@ -1,11 +1,8 @@
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-TARGET = Zombie
-SRCS = Zombie.class.cpp \
-       zombieHorde.class.cpp \
-       main.cpp \
-
+TARGET = main
+SRCS = main.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(TARGET)

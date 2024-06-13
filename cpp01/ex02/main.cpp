@@ -6,7 +6,7 @@
 /*   By: yzioual <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 19:49:01 by yzioual           #+#    #+#             */
-/*   Updated: 2024/06/12 19:56:08 by yzioual          ###   ########.fr       */
+/*   Updated: 2024/06/13 11:01:50 by yzioual          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,3 +30,33 @@ int	main(void)
 
 	return 0;
 }
+
+/* 
+ * The differences between pointers and refs :
+ *
+ *
+ * 	Pointers:
+ * 	1. pointers are nullable and reassignable.
+ * 	2. Pointers can have arithmetic operations.
+ * 	
+ *
+ * 	Refs: 
+ * 	1. Are not nullable, they must always be init to refer to a valid object.
+ * 	2. Are not reassignable, once a ref is init to an object, it cannot be changed to 		refer to another object.
+ * 	3. Accessing the value referred to by a reference doesn't require any operator
+ * 		like pointers we need to use * op.	
+ * 	4. No arithmetic ops for refs.
+ * 	
+ *
+ * 	*/
+
+
+
+
+
+
+
+
+
+
+

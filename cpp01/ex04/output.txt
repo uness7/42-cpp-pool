@@ -1,0 +1,8 @@
+Hello world! This is a exam.
+The quick brown fox jumps over the lazy dog.
+Testing, one, two, three.
+Replace all occurrences of the word 'exam' with 'exam'.
+Let's see if the exam works correctly.
+Another line with the word exam.
+Final exam line.
+

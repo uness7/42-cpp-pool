@@ -3,6 +3,7 @@ BUILD = build
 
 SRCS = $(S)/main.cpp \
        $(S)/ClapTrap.cpp \
+       $(S)/FragTrap.cpp \
        $(S)/ScavTrap.cpp \
 
 INCDIR = inc

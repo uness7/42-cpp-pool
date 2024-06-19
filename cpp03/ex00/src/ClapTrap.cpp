@@ -2,20 +2,19 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/* Constructor & Deconstructor */
-
+/* Constructor */
 ClapTrap::ClapTrap( std::string name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
 	std::cout << "Constructor called " << std::endl;
 }
 
+/* Deconstructor */
 ClapTrap::~ClapTrap()
 {
 	std::cout << "De-constructor called " << std::endl;
 }
 
 /* Copy Constructor */
-
 ClapTrap::ClapTrap(const ClapTrap &other)
 {
 	std::cout << "ClapTrap: Copy constructor called" << std::endl;
@@ -23,9 +22,11 @@ ClapTrap::ClapTrap(const ClapTrap &other)
 }
 
 /* Overload Operator */
-
 ClapTrap&	ClapTrap::operator=( ClapTrap const &copy )
 {
+	// we add this if statement to check out the self-assignment to avoid potential issues in our code.
+	// In the context of the assignment operator overload, 
+	// 	this points to the object that is on the left side of the assignment.
 	if ( this != &copy )
 	{
 		this->_name = copy._name;
@@ -33,6 +34,7 @@ ClapTrap&	ClapTrap::operator=( ClapTrap const &copy )
 		this->_energyPoints = copy._energyPoints;
 		this->_attackDamage = copy._attackDamage;
 	}
+	// Return the current object to allow chaining
 	return *this;
 }
 

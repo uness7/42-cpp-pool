@@ -1,20 +1,18 @@
 #include <iostream>
+#include "FragTrap.hpp"
 #include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
 
 int 	main()
 {
-	// Create a ScavTrap object
-	ScavTrap scavtrap("SC4V-TP");
+	ClapTrap	bob = ClapTrap("Bob");
 
-	// Test ScavTrap specific function
-	scavtrap.guardGate();
+	bob.attack("a worm");
+	bob.takeDamage(9);
 
-	// Test inherited functions
-	scavtrap.attack("target1");
-	scavtrap.takeDamage(5);
-	scavtrap.beRepaired(3);
+	FragTrap	bib = FragTrap("Bib");
 
-	return 0;
+	bib.attack("a human");
+	bib.highFivesGuys();
+	bib.beRepaired(5);
 }
 

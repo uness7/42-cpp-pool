@@ -1,58 +1,44 @@
 #include "Fixed.hpp"
 
-
-//////////////////////////////////////////////////////////////////////////
-/* Notes & Explanations 
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- * */
-/////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 /* Constructor */
-
 Fixed::Fixed( void ) : _value(0)
 {
 	std::cout << "Fixed Constructor called" << std::endl;
 }
 
 /* Constructor : int to fixed point conversion */
-
 Fixed::Fixed( const int para ) 
 {
 	this->_value = para << Fixed::_fractionalBits;
 }
 
 /* Constructor : float to fixed point conversion */
-
 Fixed::Fixed( const float para ) 
 {
 	this->_value = roundf(para * (1 << this->_fractionalBits)); 
 }
 
 /* Copy Constructor */
-
 Fixed::Fixed(const Fixed& other) : _value(other._value)
 {
 	std::cout << "Copy constructor called" << std::endl;
 }
 
-/* Copy Assignment Operator */
-
+/* Assignment Operator */
 Fixed	&Fixed::operator=(const Fixed& other)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other)
 		this->_value = other.getRawBits();
 	return *this;
+}
+
+/* Destructor */
+Fixed::~Fixed( void )
+{
+	std::cout << "Fixed Destructor called" << std::endl;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -133,7 +119,7 @@ Fixed&	Fixed::operator++()
 Fixed	Fixed::operator++(int)
 {
 	Fixed	temp(*this);
-
+	this->_value++;
 	return temp;
 }
 
@@ -146,12 +132,11 @@ Fixed&	Fixed::operator--()
 Fixed	Fixed::operator--(int)
 {
 	Fixed	temp(*this);
-
+	this->_value--;
 	return temp;
 }
 
 /* Min & Max Functions */
-
 const Fixed&	Fixed::min(Fixed const &a, Fixed const &b) { return a < b ? a : b; }
 
 
@@ -162,15 +147,6 @@ const Fixed&	Fixed::max(Fixed const &a, Fixed const &b) { return a > b ? a : b; 
 
 
 Fixed&		Fixed::max(Fixed &a, Fixed &b) { return a > b ? a : b; }
-
-
-////////////////////////////////////////////////////////////////////////////////
-
-/* Destructor */
-Fixed::~Fixed()
-{
-	std::cout << "Fixed Destructor called" << std::endl;
-}
 
 ///////////////////////////////////////////////////////////////////////////////
 

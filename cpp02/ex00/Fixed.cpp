@@ -1,6 +1,6 @@
 #include "Fixed.hpp"
 
- /* Constructor */
+ /* Default Constructor */
 Fixed::Fixed( void ) : _value(0)
 {
 	std::cout << "Fixed Constructor called" << std::endl;
@@ -30,12 +30,12 @@ Fixed::~Fixed()
 /* Getter & Setter */
 int	Fixed::getRawBits() const
 {
-	std::cout << "getRawBits member function called" << std::endl;
+	std::cout << "getRawBits member function was called" << std::endl;
 	return this->_value;
 }
 
 void	Fixed::setRawBits(int const raw)
 {
-	std::cout << "setRawBits member function called" << std::endl;
+	std::cout << "setRawBits member function was called" << std::endl;
 	this->_value = raw;
 }

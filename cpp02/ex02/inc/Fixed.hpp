@@ -42,7 +42,7 @@ class Fixed
 		static Fixed&		max( Fixed &a, Fixed &b );
 
 		/* Destructor */
-		~Fixed();
+		~Fixed( void );
 
 		/* Member Functions */
 		int	getRawBits( void ) const;

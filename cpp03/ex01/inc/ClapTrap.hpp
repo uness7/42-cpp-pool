@@ -13,11 +13,19 @@ class ClapTrap
 		int		_attackDamage;
 
 	public:
-		/* Default Constructor, Constructor, Destructor, Copy Constructor, and Assignment Operator. */
+		/* Default Constructor */
 		ClapTrap( void );
+
+		/* Constructor */
 		ClapTrap( std::string name );
+
+		/* Destructor */
 		~ClapTrap( void );
+
+		/* Copy Constructor */
 		ClapTrap( const ClapTrap &other );
+
+		/* Assignment operator overload */
 		ClapTrap&	operator=( ClapTrap const &copy );
 
 
@@ -25,6 +33,19 @@ class ClapTrap
 		void	attack( const std::string& target );
 		void 	takeDamage( unsigned int amount );
 		void 	beRepaired( unsigned int amount );
+
+
+		/* Setters */
+		void	setName( std::string name ) ;
+		void	setHitPoinst( int x ) ;
+		void	setEnergyPoints( int x ) ;
+		void	setAttackDamage( int x ) ;
+
+		/* Getters */
+		std::string	getName( void ) const ;
+		int		getHitPoints( void ) const ;
+		int		getEnergyPoints( void ) const ;
+		int		getAttackDamage( void ) const ;
 };
 
-#endif // CLAPTRAP_HPP
+#endif

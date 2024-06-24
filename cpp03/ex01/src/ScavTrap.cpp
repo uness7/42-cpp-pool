@@ -83,3 +83,15 @@ void	ScavTrap::guardGate( void )
 		this->_guardMode = true;
 	}
 }
+
+ /* Getters */
+bool    ScavTrap::getGuardMode( void ) const
+{
+	return this->_guardMode;
+}
+
+/* Setters */
+void    ScavTrap::setGuardMode( bool value )
+{
+	this->_guardMode = value;
+}

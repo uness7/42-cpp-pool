@@ -97,3 +97,45 @@ void	ClapTrap::beRepaired( unsigned int amount )
 		std::cout << "ClapTrap " << this->_name << " has no energy points" << std::endl;
 }
 
+
+/* Getters & Setters */
+void    ClapTrap::setName( std::string name )
+{
+	this->_name = name;
+}
+
+void    ClapTrap::setHitPoinst( int x )
+{
+	this->_hitPoints = x;
+}
+
+void    ClapTrap::setEnergyPoints( int x )
+{
+	this->_energyPoints = x;
+}
+
+void    ClapTrap::setAttackDamage( int x )
+{
+	this->_attackDamage = x;
+}
+
+std::string     ClapTrap::getName( void ) const
+{
+	return this->_name;
+}
+
+int	ClapTrap::getHitPoints( void ) const
+{
+	return this->_hitPoints;
+}
+
+int	ClapTrap::getEnergyPoints( void ) const
+{
+	return this->_energyPoints;
+}
+
+int             ClapTrap::getAttackDamage( void ) const
+{
+	return this->_attackDamage;
+}
+

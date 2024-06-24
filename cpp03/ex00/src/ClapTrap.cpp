@@ -1,21 +1,29 @@
 #include "ClapTrap.hpp"
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 /* Constructor */
-ClapTrap::ClapTrap( std::string name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
+ClapTrap::ClapTrap( void )
+	: _name("default"), _hitPoints(10), _energyPoints(10), _attackDamage(0)
+{
+	std::cout << "Default Constructor called " << std::endl;
+}
+
+
+ClapTrap::ClapTrap( std::string name) 
+	: _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
 	std::cout << "Constructor called " << std::endl;
 }
 
 /* Deconstructor */
-ClapTrap::~ClapTrap()
+ClapTrap::~ClapTrap( void )
 {
-	std::cout << "De-constructor called " << std::endl;
+	std::cout << "Destructor was called " << std::endl;
 }
 
 /* Copy Constructor */
-ClapTrap::ClapTrap(const ClapTrap &other)
+ClapTrap::ClapTrap( const ClapTrap &other )
 {
 	std::cout << "ClapTrap: Copy constructor called" << std::endl;
 	*this = other;
@@ -24,7 +32,6 @@ ClapTrap::ClapTrap(const ClapTrap &other)
 /* Overload Operator */
 ClapTrap&	ClapTrap::operator=( ClapTrap const &copy )
 {
-	// we add this if statement to check out the self-assignment to avoid potential issues in our code.
 	// In the context of the assignment operator overload, 
 	// 	this points to the object that is on the left side of the assignment.
 	if ( this != &copy )
@@ -38,21 +45,31 @@ ClapTrap&	ClapTrap::operator=( ClapTrap const &copy )
 	return *this;
 }
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////
 
 /* Member Functions */
-
 void	ClapTrap::attack( const std::string& target )
 {
 	if (this->_energyPoints > 0 && this->_hitPoints > 0)
 	{
 		this->_energyPoints--;
-		std::cout << "ClapTrap " << this->_name << " attacks " << target << " causing "
-		<< this->_attackDamage << " points of damage!" << std::endl;
+		std::cout
+			<< "ClapTrap " 
+			<< this->_name 
+			<< " attacks " 
+			<< target 
+			<< " causing "
+			<< this->_attackDamage 
+			<< " points of damage!" 
+			<< std::endl;
 	}
 	else
 	{
-		std::cout << "ClapTrap " << this->_name << " doesn't have enough hit points!" << std::endl;
+		std::cout 
+			<< "ClapTrap " 
+			<< this->_name 
+			<< " doesn't have enough hit points!" 
+			<< std::endl;
 	}
 }
 
@@ -60,14 +77,18 @@ void	ClapTrap::takeDamage( unsigned int amount )
 {
 	if (this->_hitPoints <= 0)
 	{
-		std::cout << "ClapTrap " << this->_name 
+		std::cout
+			<< "ClapTrap " << this->_name 
 			<< " doesn't have any hit points left." << std::endl;
 	}
 	this->_hitPoints -= amount;
 	if (this->_hitPoints < 0)
 		this->_hitPoints = 0;
-	std::cout << "ClapTrap " << this->_name << " takes " 
-		<< amount << " points of damage! Hit points left: " << this->_hitPoints << std::endl;
+	std::cout 
+		<< "ClapTrap " << this->_name 
+		<< " takes " << amount 
+		<< " points of damage! Hit points left: "
+		<< this->_hitPoints << std::endl;
 }
 
 void	ClapTrap::beRepaired( unsigned int amount )
@@ -75,19 +96,32 @@ void	ClapTrap::beRepaired( unsigned int amount )
 
 	if (this->_hitPoints == 0)
 	{
-		std::cout << "ClapTrap " << this->_name 
-			<< " has no hit points, so he can do nothing" << std::endl;
+		std::cout
+			<< "ClapTrap "
+			<< this->_name 
+			<< " has no hit points, so he can do nothing" 
+			<< std::endl;
 		return;
 	}
 	if ( _energyPoints > 0 )
 	{
 		this->_hitPoints+=amount;
 		this->_energyPoints--;
-		std::cout << "ClapTrap " << this->_name 
-			<< " has been repaired, Hit Points : " << _hitPoints << std::endl;
-
+		std::cout
+			<< "ClapTrap " 
+			<< this->_name 
+			<< " has been repaired, Hit Points : " 
+			<< this->_hitPoints << std::endl;
 	}
 	else
-		std::cout << "ClapTrap " << this->_name << " has no energy points" << std::endl;
+	{
+		std::cout 
+			<< "ClapTrap " 
+			<< this->_name 
+			<< " has no energy points" 
+			<< std::endl;
+	}
 }
 
+
+///////////////////////////////////////////////////////////////////////////////

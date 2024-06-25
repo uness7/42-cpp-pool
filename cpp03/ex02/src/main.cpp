@@ -4,6 +4,7 @@
 
 int 	main()
 {
+	/*
 	ClapTrap	bob = ClapTrap("Bob");
 
 	bob.attack("a worm");
@@ -14,5 +15,17 @@ int 	main()
 	bib.attack("a human");
 	bib.highFivesGuys();
 	bib.beRepaired(5);
+	*/
+
+	///////////////////////////////////////
+	
+	FragTrap frag1("Fraggy");
+	FragTrap frag2(frag1);
+	FragTrap frag3;
+	frag3 = frag1;
+
+	frag1.highFivesGuys();
+	frag2.highFivesGuys();
+	frag3.highFivesGuys();
 }
 

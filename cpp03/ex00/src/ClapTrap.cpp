@@ -1,15 +1,13 @@
 #include "ClapTrap.hpp"
 
-///////////////////////////////////////////////////////////////////////////////
-
-/* Constructor */
+/* Default Constructor */
 ClapTrap::ClapTrap( void )
-	: _name("unnamed"), _hitPoints(10), _energyPoints(10), _attackDamage(0)
+	: _name("default"), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
 	std::cout << "Default Constructor called " << std::endl;
 }
 
-
+/* Constructor */
 ClapTrap::ClapTrap( std::string name) 
 	: _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
@@ -42,8 +40,6 @@ ClapTrap&	ClapTrap::operator=( ClapTrap const &copy )
 	return *this;
 }
 
-//////////////////////////////////////////////////////////////////////////////////////
-
 /* Member Functions */
 void	ClapTrap::attack( const std::string& target )
 {
@@ -51,22 +47,16 @@ void	ClapTrap::attack( const std::string& target )
 	{
 		this->_energyPoints--;
 		std::cout
-			<< "ClapTrap " 
-			<< this->_name 
-			<< " attacks " 
-			<< target 
-			<< " causing "
-			<< this->_attackDamage 
-			<< " points of damage!" 
-			<< std::endl;
+			<< "ClapTrap "  << this->_name 
+			<< " attacks "  << target 
+			<< " causing " 	<< this->_attackDamage 
+			<< " points of damage!" << std::endl;
 	}
 	else
 	{
 		std::cout 
-			<< "ClapTrap " 
-			<< this->_name 
-			<< " doesn't have enough hit points!" 
-			<< std::endl;
+			<< "ClapTrap "  << this->_name 
+			<< " doesn't have enough hit points!" << std::endl;
 	}
 }
 
@@ -83,8 +73,7 @@ void	ClapTrap::takeDamage( unsigned int amount )
 	else
 		this->_hitPoints = 0;
 	std::cout 
-		<< "ClapTrap " << this->_name 
-		<< " takes " << amount 
+		<< "ClapTrap " << this->_name  << " takes " << amount 
 		<< " points of damage! Hit points left: "
 		<< this->_hitPoints << std::endl;
 }
@@ -106,17 +95,15 @@ void	ClapTrap::beRepaired( unsigned int amount )
 		this->_hitPoints += amount;
 		this->_energyPoints--;
 		std::cout
-			<< "ClapTrap " 
-			<< this->_name 
+			<< "ClapTrap " << this->_name 
 			<< " has been repaired, Hit Points : " 
 			<< this->_hitPoints << std::endl;
 	}
 	else
 	{
 		std::cout 
-			<< "ClapTrap " 
-			<< this->_name 
-			<< " has no energy points" 
-			<< std::endl;
+			<< "ClapTrap " << this->_name 
+			<< " has no energy points" << std::endl;
 	}
 }
+

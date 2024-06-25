@@ -6,7 +6,7 @@
 
 ScavTrap::ScavTrap( void )
 {
-	std::cout << "Default ScavTrap Constructor was called" << std::endl;
+	std::cout << "ScavTrap Default Constructor was called" << std::endl;
 	this->_hitPoints = 100;
 	this->_energyPoints = 100;
 	this->_attackDamage = 30;
@@ -35,7 +35,7 @@ ScavTrap::~ScavTrap()
 
 ScavTrap::ScavTrap( const ScavTrap &other ) : ClapTrap(other)
 {
-	std::cout << "Copy Constructor was called " << std::endl;
+	std::cout << "ScavTrap Copy Constructor was called " << std::endl;
 	*this = other;
 }
 

@@ -76,9 +76,8 @@ void	ClapTrap::takeDamage( unsigned int amount )
 			<< " doesn't have any hit points left." 
 			<< std::endl;
 	}
-	if (this->_hitPoints > amount)
-		this->_hitPoints -= amount;
-	else
+	this->_hitPoints -= amount;
+	if (this->_hitPoints < 0)
 		this->_hitPoints = 0;
 	std::cout 
 		<< "ClapTrap " << this->_name << " takes " 
@@ -88,18 +87,31 @@ void	ClapTrap::takeDamage( unsigned int amount )
 
 void	ClapTrap::beRepaired( unsigned int amount )
 {
-	if (this->_hitPoints <= 0 || this->_energyPoints <= 0)
+
+	if (this->_hitPoints == 0)
 	{
 		std::cout 
 			<< "ClapTrap " << this->_name 
-			<< " has no hit points or no energyPoints, so he can do nothing" << std::endl;
+			<< " has no hit points, so he can do nothing" << std::endl;
 		return;
 	}
-	std::cout 
-		<< "ClapTrap " << this->_name << " won " << amount 
-		<< " hit point(s), now have " << this->_hitPoints + amount << "!" << std::endl;
-	this->_hitPoints += amount;
-	this->_energyPoints--;
+	if ( _energyPoints > 0 )
+	{
+		this->_hitPoints+=amount;
+		this->_energyPoints--;
+		std::cout 
+			<< "ClapTrap " << this->_name 
+			<< " has been repaired, Hit Points : " 
+			<< _hitPoints << std::endl;
+	}
+	else
+	{
+		std::cout 
+			<< "ClapTrap " 
+			<< this->_name 
+			<< " has no energy points" 
+			<< std::endl;
+	}
 }
 
 /////////////////////////////////////////////////////////////////////

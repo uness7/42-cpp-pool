@@ -7,10 +7,14 @@
 class ClapTrap
 {
 	public:
-		/* Constructor */
+		/* Default Constructor */
 		ClapTrap( void );
+
+		/* Constructor */
 		ClapTrap( std::string name );
-		~ClapTrap();
+
+		/* Destructor */
+		~ClapTrap( void );
 
 		/* Copy Constructor */
 		ClapTrap( const ClapTrap &other );
@@ -28,7 +32,6 @@ class ClapTrap
 		unsigned int		_hitPoints;
 		unsigned int		_energyPoints;
 		unsigned int		_attackDamage;
-
 };
 
 #endif

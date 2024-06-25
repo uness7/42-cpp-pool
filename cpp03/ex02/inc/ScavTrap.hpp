@@ -10,9 +10,9 @@ class ScavTrap : public ClapTrap
 	public:
 		ScavTrap( void );
 		ScavTrap( const std::string name );
-		ScavTrap( const ScavTrap & );
+		ScavTrap( const ScavTrap &copy );
 		ScavTrap& operator=( const ScavTrap &copy );
-		~ScavTrap();
+		~ScavTrap( void );
 
 		/* Member Functions */
 		void	guardGate( void );

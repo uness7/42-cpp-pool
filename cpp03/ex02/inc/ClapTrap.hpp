@@ -7,10 +7,10 @@
 class ClapTrap
 {
 	protected:
-		std::string	_name;
-		int		_hitPoints;
-		int		_energyPoints;
-		int		_attackDamage;
+		std::string		_name;
+		unsigned int		_hitPoints;
+		unsigned int		_energyPoints;
+		unsigned int		_attackDamage;
 
 	public:
 		/* Default Constructor */
@@ -36,16 +36,16 @@ class ClapTrap
 
 		/* Setters */
 		void	setName( std::string name ) ;
-		void	setHitPoinst( int x ) ;
-		void	setEnergyPoints( int x ) ;
-		void	setAttackDamage( int x ) ;
+		void	setHitPoinst( unsigned int x ) ;
+		void	setEnergyPoints( unsigned int x ) ;
+		void	setAttackDamage( unsigned int x ) ;
 
 		/* Getters */
 		std::string	getName( void ) const ;
-		int		getHitPoints( void ) const ;
-		int		getEnergyPoints( void ) const ;
-		int		getAttackDamage( void ) const ;
+		unsigned int		getHitPoints( void ) const ;
+		unsigned int		getEnergyPoints( void ) const ;
+		unsigned int		getAttackDamage( void ) const ;
 
 };
 
-#endif // CLAPTRAP_HPP
+#endif

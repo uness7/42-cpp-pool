@@ -1,10 +1,9 @@
 #include "ClapTrap.hpp"
 
 /* Deafault Constructor */
-ClapTrap::ClapTrap( void )
+ClapTrap::ClapTrap( void ) : _name("default")
 {
 	std::cout << "ClapTrap Default Constructor called " << std::endl;
-	this->_name = "default";
 	this->_hitPoints = 10;
 	this->_energyPoints = 10;
 	this->_attackDamage = 0;
@@ -47,17 +46,15 @@ ClapTrap&	ClapTrap::operator=( ClapTrap const &copy )
 /* Member Functions */
 void	ClapTrap::attack( const std::string& target )
 {
-	if (this->_energyPoints > 0 && this->_hitPoints > 0)
-	{
-		this->_energyPoints--;
-		std::cout  << "ClapTrap " << this->_name << " attacks " << target << " causing "
-		<< this->_attackDamage << " points of damage!" << std::endl;
-	}
-	else
+	if (this->_energyPoints <= 0 || this->_hitPoints <= 0)
 	{
 		std::cout << "ClapTrap " << this->_name << " doesn't have enough hit points!" 
 			<< std::endl;
+		return ;
 	}
+	std::cout  << "ClapTrap " << this->_name << " attacks " << target << " causing "
+		<< this->_attackDamage << " points of damage!" << std::endl;
+	this->_energyPoints--;
 }
 
 void	ClapTrap::takeDamage( unsigned int amount )
@@ -80,26 +77,16 @@ void	ClapTrap::takeDamage( unsigned int amount )
 void	ClapTrap::beRepaired( unsigned int amount )
 {
 
-	if (this->_hitPoints == 0)
+	if (this->_hitPoints <= 0 || this->_energyPoints <= 0)
 	{
-		std::cout 
-			<< "ClapTrap " << this->_name 
-			<< " has no hit points, so he can do nothing" 
+		std::cout  << "ClapTrap " << this->_name << " has no hit points, so he can do nothing" 
 			<< std::endl;
 		return;
 	}
-	if ( this->_energyPoints > 0 )
-	{
-		this->_hitPoints+=amount;
-		this->_energyPoints--;
-		std::cout 
-			<< "ClapTrap " << this->_name 
-			<< " has been repaired, Hit Points : " 
-			<< _hitPoints << std::endl;
-	}
-	else
-		std::cout 
-			<< "ClapTrap " << this->_name 
-			<< " has no energy points" << std::endl;
+	this->_hitPoints += amount;
+	this->_energyPoints--;
+	std::cout 
+		<< "ClapTrap " << this->_name << "now has been repaired, he's got hit Points : " 
+		<< this->_hitPoints << std::endl;
 }
 

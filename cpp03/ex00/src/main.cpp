@@ -19,7 +19,7 @@ int	main( void )
 
 
 	// TEST FURTHER ACTIONS WHEN ENERGY OR HIT POINTS ARE ZERO
-	std::cout << "TEST WHEN HIT POINTS OR ENERGY POINTS EQUAL TO ZERO " << std::endl;
+	std::cout << "\nTEST WHEN HIT POINTS OR ENERGY POINTS EQUAL TO ZERO : " << std::endl;
 	claptrap.attack("target3");
 	claptrap.takeDamage(10);
 	claptrap.beRepaired(5);

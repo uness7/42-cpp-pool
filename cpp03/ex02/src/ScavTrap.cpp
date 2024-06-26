@@ -1,9 +1,6 @@
 #include "ScavTrap.hpp"
 
-/////////////////////////////////////////////////////////////////////////////////////////////////
-
 /* Default Constructor */
-
 ScavTrap::ScavTrap( void )
 {
 	std::cout << "ScavTrap Default Constructor was called" << std::endl;
@@ -14,25 +11,22 @@ ScavTrap::ScavTrap( void )
 }
 
 /* Constructor */
-
 ScavTrap::ScavTrap( const std::string name ) : ClapTrap(name)
 {
-	std::cout << "ScavTrap Constructor was called" << std::endl;
+	std::cout << "ScavTrap Parameterized Constructor was called" << std::endl;
 	this->_hitPoints = 100;
 	this->_energyPoints = 100;
 	this->_attackDamage = 30;
 	this->_guardMode = false;
 }
 
-/* De-constructor */
-
-ScavTrap::~ScavTrap()
+/* Destructor */
+ScavTrap::~ScavTrap( void )
 {
-	std::cout << "ScavTrap Deconstructor was called" << std::endl;
+	std::cout << "ScavTrap Destructor was called" << std::endl;
 }
 
 /* Copy Constructor */
-
 ScavTrap::ScavTrap( const ScavTrap &other ) : ClapTrap(other)
 {
 	std::cout << "ScavTrap Copy Constructor was called " << std::endl;
@@ -40,9 +34,9 @@ ScavTrap::ScavTrap( const ScavTrap &other ) : ClapTrap(other)
 }
 
 /* Assignment Operator */
-
 ScavTrap&	ScavTrap::operator=( const ScavTrap &other )
 {
+	std::cout << "ScavTrap Assignment operator overload" << std::endl;
 	if (&other != this)
 	{
 		this->_name = other._name;
@@ -54,10 +48,8 @@ ScavTrap&	ScavTrap::operator=( const ScavTrap &other )
 	return *this;
 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////
 
 /* Member functions */
-
 void	ScavTrap::attack(const std::string &target)
 {
 	if (this->_hitPoints <= 0 || this->_energyPoints <= 0)

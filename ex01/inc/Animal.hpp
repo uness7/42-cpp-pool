@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 
+/* Animal class is abstract */
 class Animal
 {
 	protected:
@@ -29,8 +30,8 @@ class Animal
 		std::string	getType( void ) const ;
 		void		setType( const std::string type) ;
 
-		/* Member Function */
-		virtual void		makeSound( void ) const;
+		/* Pure Virtual Member Function */
+		virtual void		makeSound( void ) const = 0;
 };
 
 #endif // ANIMAL_HPP

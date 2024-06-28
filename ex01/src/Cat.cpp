@@ -1,11 +1,10 @@
 #include "Cat.hpp"
 
 /* Default Constructor */
-Cat::Cat( void )
+Cat::Cat( void ) : Animal("Cat") 
 {
-	Animal("Cat");
 	std::cout << "Cat Default constructor was called" << std::endl;
-	this->o_brain = new Brain(); 
+	this->o_brain = new Brain();
 }
 
 /* Destructor */
@@ -16,7 +15,7 @@ Cat::~Cat( void )
 }
 
 /* Copy Constructor */
-Cat::Cat( const Cat &copy)
+Cat::Cat( const Cat &copy) : Animal(copy), o_brain(new Brain(*copy.o_brain))
 {
 	std::cout << "Cat Copy constructor was called" << std::endl;
 	*this = copy;
@@ -27,7 +26,11 @@ Cat&	Cat::operator=( const Cat &copy )
 {
 	std::cout << "Cat Assignment overload operator was called" << std::endl;
 	if (this != &copy)
-		this->m_type = copy.m_type;
+	{
+		Animal::operator=(copy);
+		delete o_brain;
+		o_brain = new Brain(*copy.o_brain);
+	}
 	return *this;
 }
 

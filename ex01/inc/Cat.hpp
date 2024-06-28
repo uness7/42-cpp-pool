@@ -10,6 +10,7 @@ class Cat : public Animal
 {
 	private:
 		Brain	*o_brain;
+
 	public:
 		/* Default Constructor */
 		Cat( void );

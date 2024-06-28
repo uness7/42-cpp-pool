@@ -5,6 +5,9 @@
 
 class Brain
 {
+	private:
+		std::string	m_ideas[100];
+
 	public:
 		/* Default Constructor */
 		Brain( void );
@@ -12,7 +15,7 @@ class Brain
 		/* Destructor */	
 		~Brain( void );
 
-		/* Constructor */	
+		/* Parameterized Constructor */	
 		Brain( std::string name ) ;
 
 		/* Copy Constructor */
@@ -21,6 +24,7 @@ class Brain
 		/* Assignment Copy operator overload */
 		Brain&	operator=( const Brain &copy ) ;
 
-		/* Attributes */
-		std::string	ideas;
+		/* Getter & setters */
+		std::string	getIdea( int index ) const ;
+		void		setIdea( int index, std::string const &idea ) ; 
 };

@@ -22,4 +22,8 @@ class Dog : public Animal
 		Dog&	operator=( const Dog &copy );
 
 		void	makeSound( void ) const ;
+
+		/* Member functions */
+		void	setIdea( int index, std::string idea );
+		std::string	getIdea( int index ) const ;
 };

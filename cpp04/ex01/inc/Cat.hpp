@@ -24,5 +24,8 @@ class Cat : public Animal
 		/* Assignment Copy operator overload */
 		Cat&	operator=( const Cat &copy ) ;
 
+		/* Member Functions */
 		virtual void makeSound( void ) const ;
+		void	setIdea( int index, std::string idea ) ; 
+		std::string	getIdea( int index ) const ;
 };

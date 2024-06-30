@@ -1,1 +1,26 @@
-Test File
+#Roadmap
+Define the AMateria class:
+
+Define the constructor and the necessary member functions.
+Define the pure virtual function clone() and the virtual function use().
+Define the concrete classes Ice and Cure:
+
+Inherit from AMateria.
+Implement the clone() method.
+Implement the use() method.
+Define the ICharacter interface:
+
+Define the pure virtual functions: getName(), equip(), unequip(), and use().
+Implement the Character class:
+
+Inherit from ICharacter.
+Manage an inventory of AMateria objects.
+Implement the necessary member functions.
+Define the IMateriaSource interface:
+
+Define the pure virtual functions: learnMateria() and createMateria().
+Implement the MateriaSource class:
+
+Inherit from IMateriaSource.
+Manage a list of learned AMateria objects.
+Implement the necessary member functions.

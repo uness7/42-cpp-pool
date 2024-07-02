@@ -20,7 +20,7 @@ class Cat : public Animal
 		/* Assignment Copy operator overload */
 		Cat&	operator=( const Cat &copy ) ;
 
-		virtual void makeSound( void ) const ;
+		void makeSound( void ) const ;
 };
 
 #endif

@@ -13,7 +13,7 @@ class WrongAnimal
 		WrongAnimal( void );
 
 		/* Destructor */	
-		virtual ~WrongAnimal( void );
+		~WrongAnimal( void );
 
 		/* Constructor */	
 		WrongAnimal( std::string name ) ;
@@ -29,5 +29,5 @@ class WrongAnimal
 		std::string	getType( void ) const ;
 
 		/* Member Functions */
-		virtual void makeSound( void ) const;
+		void makeSound( void ) const;
 };

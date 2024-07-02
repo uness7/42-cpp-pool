@@ -3,38 +3,41 @@
 #include "Animal.hpp"
 #include "Cat.hpp"
 
-// Define color codes for console output
 #define RESET   "\033[0m"
-#define RED     "\033[31m"      /* Red */
-#define GREEN   "\033[32m"      /* Green */
-#define YELLOW  "\033[33m"      /* Yellow */
-#define BLUE    "\033[34m"      /* Blue */
-#define MAGENTA "\033[35m"      /* Magenta */
-#define CYAN    "\033[36m"      /* Cyan */
+#define RED     "\033[31m"     
+#define GREEN   "\033[32m"    
+#define YELLOW  "\033[33m"   
+#define BLUE    "\033[34m"  
+#define MAGENTA "\033[35m" 
+#define CYAN    "\033[36m"
 #define BOLD    "\033[1m"
 #define UNDERLINE "\033[4m"
 
 
 int	main( void )
 {
-	int	size = 100;
+	{
+		Dog basic;
+		{
+			Dog tmp = basic;
+	}
+		std::cout << "\e[38;2;170;0;0;5mCHECK\e[0m\n";
+	}
+	int	size = 10;
 	Animal	*objs[size];
 
-	// Creation of 50 Dog objs
 	for ( int i = 0; i < size / 2; i++)
 		objs[i] = new Dog();
 
-	// Creation of 50 Cat objs
 	for ( int i = size / 2; i < size ; i++)
 		objs[i] = new Cat();
 
-	// Deletion of the 100 objs
 	for ( int i = 0 ; i < size ; i++ )
 		delete objs[i];
 
 
 	// TESTS FOR DEEP COPYING
-	std::cout << std::endl;
+	std::cout << std::endl << "------------------------------------------------------------------------------------------" << std::endl << std::endl;
 	std::cout << BOLD << MAGENTA << "TESTS FOR DEEP COPYING (Dog version)" << RESET << std::endl;
 	Dog dog1;
 	Dog dog2;

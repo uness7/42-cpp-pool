@@ -17,7 +17,7 @@
 
 int	main( void )
 {
-	int	size = 100;
+	int	size = 10;
 	Animal	*objs[size];
 
 	// Creation of 50 Dog objs

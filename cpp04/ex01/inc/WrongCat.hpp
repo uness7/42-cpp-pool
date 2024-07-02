@@ -23,8 +23,7 @@ class WrongCat : public WrongAnimal
 		/* Assignment Copy operator overload */
 		WrongCat&	operator=( const WrongCat &copy ) ;
 
-		virtual void	makeSound( void ) const;
-
+		void	makeSound( void ) const;
 };
 
 #endif // WRONGCAT_HPP
